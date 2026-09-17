@@ -1,0 +1,19 @@
+name: a workflow that describes its own run 
+
+on:
+  push:
+
+jobs:
+  context-values:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repo name
+        run: echo ${{ github.repository }} 
+      - name: branch name 
+        run: echo ${{ github.ref_name }} 
+      - name: commit id
+        run: echo ${{ github.sha }}
+      - name: event name
+        run: echo ${{ github.event-name }}
+      - name: runner OS
+        run: echo ${{ runner.os }}
