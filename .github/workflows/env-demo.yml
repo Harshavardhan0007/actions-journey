@@ -1,0 +1,25 @@
+name: use nev in a workflow 
+
+on: 
+ push:
+
+env:
+  APP_NAME: journey 
+
+jobs:
+  env-level:
+    runs-on: ubuntu-latest
+    env:
+      LOG_LEVEL: info 
+    steps:
+      - name: one step
+        run: |
+          echo $APP_NAME
+          echo $LOG_LEVEL
+      - name: two step
+        env:
+          LOG_LEVEL: debug
+        run: |
+          echo $APP_NAME 
+          echo $LOG_LEVEL
+ 
