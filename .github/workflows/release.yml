@@ -7,13 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "Hellow"
-  unit-test:
+  unit-tests:
     runs-on: ubuntu-latest
     steps:
       - run: echo "world class" 
   package: 
     runs-on: ubuntu-latest
-    needs: [lint, unit-test]
+    needs: [lint, unit-tests]
     steps:
       - run: echo  "after the lint and unit-test"
 
