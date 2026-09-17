@@ -1,0 +1,11 @@
+name: create and use a repo variable
+
+on: push
+
+jobs:
+  repo-var:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deplot to region
+        run: echo "deploying to region ${{ vars.DEPLOY_REGION }}"
+
