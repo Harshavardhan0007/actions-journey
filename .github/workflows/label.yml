@@ -1,0 +1,11 @@
+name: build a run label with format 
+
+on: push 
+
+jobs:
+  label-format:
+    runs-on: ubuntu-latest
+    steps:
+      - name: formating 
+        run: ${{ format('build {0} of {1}', github.run_number, github.ref_name) }} 
+
