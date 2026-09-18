@@ -1,0 +1,13 @@
+name: A step that runs only on main
+
+on: push
+
+jobs:
+  gate-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run tests
+        run: echo "running the tests"
+      - name: Deploy 
+        if: github.ref == 'refs/heads/main'
+        run: echo "deploying the message"
