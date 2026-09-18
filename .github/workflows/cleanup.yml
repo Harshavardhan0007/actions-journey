@@ -1,0 +1,16 @@
+name: A cleanup step that always runs
+
+on: push
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Start test database
+        run: echo "test databases"
+      - name: Flaky check
+        run: ./test.sh 
+      - name: Stop test database
+        if: failure() 
+        run: echo "stop test databses"
+
