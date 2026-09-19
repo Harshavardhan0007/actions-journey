@@ -9,7 +9,7 @@ jobs:
     - name: building a file
       run : date > app.txt
     - name: upload to artificat
-      uses: actions/upload-artifactsv4
+      uses: actions/upload-artifact@v4
       with:
         name: app-package
         path: app.txt
