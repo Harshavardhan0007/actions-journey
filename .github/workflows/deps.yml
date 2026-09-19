@@ -6,6 +6,8 @@ jobs:
   deps:
     runs-on: ubuntu-latest
     steps:
+      - name: checkout the code
+        uses: actions/checkout@v4
       - name: caching the files
         uses: actions/cache@v4
         with:
