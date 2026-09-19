@@ -1,0 +1,25 @@
+name: hand a file to a second job
+
+on: push 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: building a file
+      run : date > app.txt
+    - name: upload to artificat
+      uses: actions/upload-artifacts@v4
+      with:
+        name: app-package
+        path: app.txt
+  verify:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: downlaod the artifiacts
+        uses: actions/download-artifacts@v4
+        with:
+          name: app-package
+      - name: check it arrived
+        run: test -f app.txt 
