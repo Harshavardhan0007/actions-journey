@@ -1,25 +1,5 @@
-name: pipeline with dependent jobs
-
 on: push
-
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.var.outputs.version }}
-    steps:
-      - name: Compute version
-        id: var
-        run: echo "version=1.4.2" >> "GITHUB_OUTPUT"
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - run: echo "testing"
+  checks:
+    uses: ./.github/workflows/checks.yml
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: [build, test]
-    steps:
-      - name: deploying
-        run: echo "Deploying ${{ needs.build.outputs.version }}"

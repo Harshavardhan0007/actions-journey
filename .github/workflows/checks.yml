@@ -1,0 +1,15 @@
+name: build and call a reusable workflow 
+
+on: 
+  workflow_call:
+
+jobs:
+  check-out:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run:  echo "harsha is doing"
+
+
+
+
