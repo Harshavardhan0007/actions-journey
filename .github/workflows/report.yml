@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: generate report
-        run: echo "$date" > report.txt
+        run: date > report.txt
       - name: upload the report
         uses: actions/upload-artifact@v4
         with: 
